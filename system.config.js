@@ -6,4 +6,4 @@ System.config({
         'plotly.js': 'https://cdn.plot.ly/plotly-latest.min.js'
     }
 });
-System.import('index'); F
+System.import('index');

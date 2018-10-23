@@ -1,15 +1,13 @@
 import React from 'react';
+import Plotly, { AxisType, LayoutAxis } from 'plotly.js';
 
-declare const Plotly, $;
+declare const $;
 
 export default class HistoricalPlotly extends React.PureComponent {
     plotlyDivId = 'emotes-plotly';
 
     refreshEmotePlot = () => {
         $.getJSON('/kappa/emoteplotjson', (data) => {
-            // for (let i in data) {
-            //     data[i].type = 'scatter';
-            // }
             var layout = {
                 hovermode: 'closest',
                 title: 'past 24 hours',
@@ -17,11 +15,11 @@ export default class HistoricalPlotly extends React.PureComponent {
                 xaxis: {
                     type: 'date'
                 }
-            };
-            const plotlyData = data.map(d => ({
+            } as Partial<LayoutAxis>;   // Is there a better way to make this amenable to typechecking in newPlot?
+            const plotlyData = data.map((d: { x: number[], y: number[], name: string }) => ({
                 ...d,
                 type: 'scatter',
-                x: d.x.map(xi => new Date(xi * 1000)) 
+                x: d.x.map(xi => new Date(xi * 1000))
             }));
             Plotly.newPlot(this.plotlyDivId, plotlyData, layout, { displayModeBar: false });  // data[i].x = [time array], data[i].y = [data array]
             setTimeout(this.refreshEmotePlot, 600000);  // 10 minutes
