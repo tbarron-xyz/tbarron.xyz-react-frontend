@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ColsToTableAnchors extends React.PureComponent<{ titles, onclick0, data }> {
+export default class TabularDataDisplayWithFirstColumnOnclickHandler extends React.PureComponent<{ titles, onclick0, data }> {
     render() {
         return (
             <table style={{ width: "100%" }}>

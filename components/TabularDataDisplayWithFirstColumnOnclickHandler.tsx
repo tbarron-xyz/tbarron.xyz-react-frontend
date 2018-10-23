@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class ColsToTable extends React.PureComponent<{ titles: string[], data: any[][], onclick0?}> {
+export default class TabularDataDisplay extends React.PureComponent<{ titles: string[], data: any[][], onclick0?}> {
     render() {
         return (
             <table style={{ width: "100%" }}>

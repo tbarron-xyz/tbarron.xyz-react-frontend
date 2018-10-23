@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import IndexPage from './components/IndexPage';
+import TwitchChatMonitorApp from './components/TwitchChatMonitorApp';
 
 declare const $;
 
-
 $(document).ready( function(){
-	ReactDOM.render(<IndexPage /> , $('#content')[0]);
+	ReactDOM.render(<TwitchChatMonitorApp /> , document.getElementById('container'));
 });
