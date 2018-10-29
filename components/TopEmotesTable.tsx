@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { H2center } from './H2center';
-import TabularDataDisplayWithFirstColumnOnclickHandler from './ColsToTableAnchors';
+import TabularDataDisplay from './TabularDataDisplay';
 
 export default class TopEmotesTable extends React.PureComponent<{titles, data, onclick0}> {
     render() {
@@ -9,7 +9,7 @@ export default class TopEmotesTable extends React.PureComponent<{titles, data, o
             <div>
                 <H2center data="top emotes" />
                 <div style={{ textAlign: 'center' }}>(click to see top channels by that emote)</div>
-                <TabularDataDisplayWithFirstColumnOnclickHandler {...this.props} />
+                <TabularDataDisplay {...this.props} />
             </div>
         )
     }
