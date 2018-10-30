@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactTwitchEmbedVideo from '../node_modules/react-twitch-embed-video/src/index';
+import TwitchRipped from './TwitchRipped';
 
 
 export default class TwitchEmbedThatFollowsMouse extends React.PureComponent<{ title: string }, { left: number, top: number }> {
@@ -11,7 +11,7 @@ export default class TwitchEmbedThatFollowsMouse extends React.PureComponent<{ t
 
     render() {
         return <div style={{ position: 'absolute', left: this.state.left, top: this.state.top }}>
-            <ReactTwitchEmbedVideo channel={this.props.title} />
+            <TwitchRipped channel={this.props.title} />
         </div>;
     }
 }
