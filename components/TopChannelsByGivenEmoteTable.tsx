@@ -10,15 +10,15 @@ export default class TopChannelsByGivenEmoteTable extends React.PureComponent<{ 
         this.state = { currentTwitchEmbedTitle: null };
     }
 
-    launchChannel(title: string) {
+    launchChannel = (title: string) => {
         this.setState({ currentTwitchEmbedTitle: title });
     }
 
-    closeChannel(title: string) {
+    closeChannel = (title: string) => {
         this.setState({ currentTwitchEmbedTitle: null });
     }
 
-    onclick0(title: string) {
+    onclick0 = (title: string) => {
         this.setState({ currentTwitchEmbedTitle: this.state.currentTwitchEmbedTitle ? null : title });
     }
 
