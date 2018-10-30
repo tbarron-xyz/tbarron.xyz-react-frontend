@@ -32,7 +32,7 @@ export default class TopChannelsByGivenEmoteTable extends React.PureComponent<{ 
                     onMouseOver0={this.launchChannel}
                     onMouseOut0={this.closeChannel}
                     onclick0={this.onclick0} />
-                {this.state.currentTwitchEmbedTitle ? <TwitchEmbedThatFollowsMouse title={this.state.currentTwitchEmbedTitle} /> : null}
+                <TwitchEmbedThatFollowsMouse title={this.state.currentTwitchEmbedTitle} />
             </div>
         );
     }
