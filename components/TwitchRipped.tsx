@@ -1,5 +1,5 @@
 import React from 'react';
-import '../lib/twitch-embed.v1.js';
+import '../lib/twitch-embed';
 
 declare const Twitch;
 
@@ -8,7 +8,7 @@ declare const Twitch;
 export default class TwitchVideoEmbed extends React.Component<{
     channel?: string,
     video?: string
-}, {id: string}> {
+}, { id: string }> {
     player: any;
     channel: boolean;
     constructor(props) {
@@ -24,6 +24,12 @@ export default class TwitchVideoEmbed extends React.Component<{
     }
 
     componentDidMount() {
+        const script = document.createElement("script");
+
+        script.src = "https://embed.twitch.tv/embed/v1.js";
+        script.async = true;
+
+        document.body.appendChild(script);
         this.setPlayer();
     }
 
