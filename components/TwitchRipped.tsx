@@ -64,7 +64,7 @@ export default class TwitchVideoEmbed extends React.Component<{
                 options.video = this.props.video;
             }
             if (typeof window !== 'undefined' && (window as any).Twitch) {
-                this.player = new Twitch.Player(this.state.id, options);
+                this.player = new Twitch.Embed(this.state.id, options);
             }
         }
     }
