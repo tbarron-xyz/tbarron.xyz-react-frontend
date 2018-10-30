@@ -1,5 +1,5 @@
 import React from 'react';
-import 'twitch-embed';
+import '../lib/twitch-embed.v1.js';
 
 declare const Twitch;
 
