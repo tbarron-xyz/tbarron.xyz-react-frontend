@@ -5,6 +5,11 @@ import TabularDataDisplay from './TabularDataDisplay';
 import TwitchEmbedThatFollowsMouse from './TwitchEmbedThatFollowsMouse';
 
 export default class TopChannelsByGivenEmoteTable extends React.PureComponent<{ data, emote: string }, { currentTwitchEmbedTitle: string }> {
+    constructor(props) {
+        super(props);
+        this.state = { currentTwitchEmbedTitle: null };
+    }
+
     launchChannel(title: string) {
         this.setState({ currentTwitchEmbedTitle: title });
     }
