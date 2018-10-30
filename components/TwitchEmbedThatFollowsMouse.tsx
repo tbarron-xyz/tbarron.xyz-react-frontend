@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactTwitchEmbedVideo from 'react-twitch-embed-video';
+import ReactTwitchEmbedVideo from '../node_modules/react-twitch-embed-video/src/index';
 
 
 export default class TwitchEmbedThatFollowsMouse extends React.PureComponent<{ title: string }, { left: number, top: number }> {
