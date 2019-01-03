@@ -63,7 +63,10 @@ export default class TwitchVideoEmbed extends React.Component<{
 
     setPlayer() {
         if (!this.player) {
-            const options: any = {};
+            const options: any = {
+                height: 300,
+                width: 400
+            };
             if (this.channel) {
                 options.channel = this.props.channel;
             } else {
