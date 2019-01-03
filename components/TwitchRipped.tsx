@@ -24,7 +24,7 @@ export default class TwitchVideoEmbed extends React.Component<{
 
     componentDidMount() {
         const script = document.createElement("script");
-        const url = "https://player.twitch.tv/embed/v1.js"; //"https://embed.twitch.tv/embed/v1.js"
+        const url = "https://player.twitch.tv/js/embed/v1.js"; //"https://embed.twitch.tv/embed/v1.js"
 
         script.src = url;
         script.async = true;
