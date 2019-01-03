@@ -16,7 +16,7 @@ export default class TwitchChatMonitorApp extends React.PureComponent<{}, { cols
             emotesBoxData: [],
             emote: 'Kappa'
         };
-        this.jsonSocket = new WebSocket("ws://tbarron.xyz/kappa");
+        this.jsonSocket = new WebSocket("wss://tbarron.xyz/kappa");
         this.jsonSocket.onmessage = event => {
             var data = JSON.parse(event.data) as { mode: string, emote: string, data: any };
             // if (data.mode == 'index') {
