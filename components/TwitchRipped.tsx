@@ -24,8 +24,9 @@ export default class TwitchVideoEmbed extends React.Component<{
 
     componentDidMount() {
         const script = document.createElement("script");
+        const url = "https://player.twitch.tv/embed/v1.js"; //"https://embed.twitch.tv/embed/v1.js"
 
-        script.src = "https://embed.twitch.tv/embed/v1.js";
+        script.src = url;
         script.async = true;
 
         document.body.appendChild(script);
@@ -69,7 +70,7 @@ export default class TwitchVideoEmbed extends React.Component<{
                 options.video = this.props.video;
             }
             if (typeof window !== 'undefined' && (window as any).Twitch) {
-                this.player = new Twitch.Embed(this.state.id, options);
+                this.player = new Twitch.Player(this.state.id, options);
             }
         }
     }
