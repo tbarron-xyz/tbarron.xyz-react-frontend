@@ -20,6 +20,13 @@ export default class TwitchChatMonitorApp extends React.PureComponent<{ initialS
             emotesBoxData: [],
             emote: 'Kappa'
         };
+
+        if (props.initialState) {
+            this.updateEmoteByChannel(props.initialState.emote, props.initialState.colsToTableData);
+        }
+    }
+
+    componentDidMount() {
         this.jsonSocket = new WebSocket("wss://tbarron.xyz/kappa");
         this.jsonSocket.onmessage = event => {
             var data = JSON.parse(event.data) as { mode: string, emote: string, data: any };
@@ -32,10 +39,6 @@ export default class TwitchChatMonitorApp extends React.PureComponent<{ initialS
                 this.updateEmoteCounts(data['emotes']);
             }
         };
-
-        if (props.initialState) {
-            this.updateEmoteByChannel(props.initialState.emote, props.initialState.colsToTableData);
-        }
     }
 
     updateEmoteCounts = (newData) => {
