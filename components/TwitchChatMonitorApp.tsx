@@ -4,9 +4,13 @@ import TopChannelsByGivenEmoteTable from './TopChannelsByGivenEmoteTable';
 import TopEmotesTable from './TopEmotesTable';
 import HistoricalPlotly from './HistoricalPlotly';
 
-declare const $, Plotly;
+export interface State {
+    colsToTableData: [];
+    emotesBoxData: [];
+    emote: string
+}
 
-export default class TwitchChatMonitorApp extends React.PureComponent<{}, { colsToTableData: [], emotesBoxData: [], emote: string }> {
+export default class TwitchChatMonitorApp extends React.PureComponent<{ initialState?: Partial<State> }, State> {
     jsonSocket: WebSocket;
 
     constructor(props) {
@@ -28,6 +32,10 @@ export default class TwitchChatMonitorApp extends React.PureComponent<{}, { cols
                 this.updateEmoteCounts(data['emotes']);
             }
         };
+
+        if (props.initialState) {
+            this.updateEmoteByChannel(props.initialState.emote, props.initialState.colsToTableData);
+        }
     }
 
     updateEmoteCounts = (newData) => {
@@ -59,20 +67,20 @@ export default class TwitchChatMonitorApp extends React.PureComponent<{}, { cols
                 <hr />
 
                 <div id="content">
-                        <div id="stats">
-                            {this.state.colsToTableData ?
-                                <TopChannelsByGivenEmoteTable data={this.state.colsToTableData} emote={this.state.emote} /> : null}
-                        </div>
+                    <div id="stats">
+                        {this.state.colsToTableData ?
+                            <TopChannelsByGivenEmoteTable data={this.state.colsToTableData} emote={this.state.emote} /> : null}
+                    </div>
 
-                        <div id="emotes">
-                            {this.state.emotesBoxData ?
-                                <TopEmotesTable titles={['Emote', 'Count']} data={this.state.emotesBoxData} onclick0={this.changeModeToEmote} /> : null}
-                        </div>
-                        <hr />
+                    <div id="emotes">
+                        {this.state.emotesBoxData ?
+                            <TopEmotesTable titles={['Emote', 'Count']} data={this.state.emotesBoxData} onclick0={this.changeModeToEmote} /> : null}
+                    </div>
+                    <hr />
 
-                        <HistoricalPlotly />
+                    <HistoricalPlotly />
 
-                        <hr />
+                    <hr />
                 </div>
 
                 <hr />
